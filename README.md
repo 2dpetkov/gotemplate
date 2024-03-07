@@ -5,8 +5,9 @@ The [gotemplate] Application is a GoLang service designed to run as a background
 ## Prerequisites
 
 - Docker and Docker Compose
-- GoLang environment (for local development)
+- GoLang environment and make (for local development)
 - PostgreSQL client tools (optional, for direct database access)
+- dotenv for running out of docker with make (optional)
 
 ## Setup
 
@@ -27,6 +28,16 @@ To build the application binary:
 make build
 ```
 This compiles the Go application and places the binary in the `./bin` directory.
+
+## Set Up Environment Variables
+
+First, copy the example environment file to create your own .env file:
+
+```bash
+cp env.example .env
+```
+
+Next, configure the variables in the `.env` file according to your setup.
 
 ## Running the Application
 
@@ -63,7 +74,7 @@ To build a Docker image for the application:
 ```bash
 make docker-build
 ```
-This builds the Docker image tagged as `gotemplate`, following the instructions in the `Dockerfile`.
+This builds the Docker image tagged as `gas-meter`, following the instructions in the `Dockerfile`.
 
 ### Running the Application in Docker
 To run the application using Docker Compose:
@@ -85,3 +96,11 @@ This removes the `./bin` directory and its contents.
 ## Direct Database Access
 
 If you need to access the PostgreSQL database directly, use the `psql` command-line tool or any PostgreSQL client, connecting with the credentials defined in your `.env` file and `docker-compose.yml`.
+
+## Script Execution Guide
+
+This project may include scripts designed for testing and engaging with its modules and dependencies. To run the example script, or any future scripts added, please use the following command as a guide:
+For example
+```bash
+go run cmd/scripts/script.go
+```

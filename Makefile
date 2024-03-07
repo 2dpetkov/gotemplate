@@ -18,7 +18,7 @@ build:
 # Run the application
 run: build
 	@echo "Running the application..."
-	@./bin/gotemplate
+	@dotenv -f .env ./bin/gotemplate
 
 # Start the PostgreSQL database using Docker Compose
 db-up:
